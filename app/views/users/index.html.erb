@@ -1,0 +1,17 @@
+<!--User一覧ページ-->
+<h2><strong>Users</strong></h2>
+
+<tabel>
+  <tr>
+    <th>image</th>
+    <th>name</th>
+  </tr>
+  
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= @users.name %></td>
+  </tr>
+</tabel>
+<% end %>
+
+
