@@ -5,7 +5,7 @@ class Book < ApplicationRecord
   def get_profile_image
     unless prfile_image.attached?
       file_path = Railes.root.join('app/assets/no_image.jpg')
-      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+      profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     image
   end
