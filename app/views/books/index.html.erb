@@ -1,6 +1,8 @@
 <!-- Booksの一覧ページ -->
 <h2><strong>Books</strong></h2>
 
+<%= render 'users/user_info', books: @books %>
+
 <table>
   <tr>
     <th>Title</th>
@@ -8,8 +10,9 @@
   </tr>
   
   <% @books.each do |book| %>
+    <%= image_tag book.get_profile_image %>
   <tr>
-    <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+    <td><%= image_tag 'sample-author1.jpg' %></td>
     <td><%= book.title %></td>
     <td><%= book.body %></td>
   </tr>
@@ -17,15 +20,3 @@
 </table>
 
 
-<h2><strong>New book</strong></h2>
-<%= form_with model: @book do |f| %>
-  
-  <div class="book-title">Title</div>
-    <%= f.text_field :title %>
-  
-  <div class="book-body">Opinion</div>
-    <%= f.text_area :body %>
-      
-  <br><%= f.submit "Create Book" %></br>
-    
-<% end %>
