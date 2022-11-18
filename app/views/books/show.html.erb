@@ -2,7 +2,7 @@
 <h2><strong>User info</strong></h2>
 <%= form_with model: @user do |user| %>
   <% if @book.profile_image. attached? %>
-    <%= image_tag book.profile_image, size: "100×100" %>
+    <%= image_tag @book.profile_image, size: "100×100" %>
   <% else %>
     <%= image_tag 'no_image', size: "100×100" %>
   <% end %>
@@ -35,7 +35,7 @@
   <tr>
     <td>
       <% if @book.profile_image. attached? %>
-        <%= image_tag book.profile_image, size: "100×100" %>
+        <%= image_tag @book.profile_image, size: "100×100" %>
       <% else %>
         <%= image_tag 'no_image', size: "100×100" %>
       <% end %>
