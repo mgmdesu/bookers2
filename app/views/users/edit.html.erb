@@ -3,11 +3,11 @@
 <%= form_with model: @user do |f| %>
 <table>
   <label for="inputTitle">Name</label>
-  <%= f.text_field :title, autofocus: true, id:"inputTitle" %>
+  <%= f.text_field :name, autofocus: true, id:"inputTitle" %>
   <label for="inputImage">Image</label>
   <%= f.file_field :profile_image,  accept: "image/*" %>
   <label for="inputBody">Introduction</label>
-  <%= f.text_area :body %>
+  <%= f.text_area :introduction %>
   <%= f.submit "Update User" %>
 <% end %>
 </table>

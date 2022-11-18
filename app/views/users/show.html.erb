@@ -1,3 +1,5 @@
+<!--User_infoのページ-->
+
 <!--マイページ(Userページ)-->
 <h2><strong>Books</strong></h2>
 
@@ -9,11 +11,9 @@
 
   <% @books.each do |book| %>
   <tr>
-    <td><%= image_tag book.user.get_profile_image(100,100) %></td>
     <td><%= book.title %></td>
     <td><%= book.body %></td>
   </tr>
   <% end %>
 </table>
 
-<%= render 'user_info', books: @books %>

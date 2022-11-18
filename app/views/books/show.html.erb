@@ -1,19 +1,53 @@
+<!--User_infoのページ-->
+<h2><strong>User info</strong></h2>
+<%= form_with model: @user do |user| %>
+  <% if @book.profile_image. attached? %>
+    <%= image_tag book.profile_image, size: "100×100" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "100×100" %>
+  <% end %>
+<% end %>
+<table>
+  <tr>
+    <th>name</th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+  </tr>
+</table>
+
+<h2><strong>New book</strong></h2>
+<%= form_with model: @book do |f| %>
+  
+  <div class="book-title">Title</div>
+    <%= f.text_field :title %>
+  
+  <div class="book-body">Opinion</div>
+    <%= f.text_area :body %>
+      
+  <br><%= f.submit "Create Book" %></br>
+    
+<% end %>
 <!--Books detailのページ-->
 <h2><strong>Book detail</strong></h2>
 
 <tabel>
   <tr>
-    <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
+    <td>
+      <% if @book.profile_image. attached? %>
+        <%= image_tag book.profile_image, size: "100×100" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "100×100" %>
+      <% end %>
+    </td>
     <%= @book.user.name %>
     <td><%= link_to @book.title, book_path(@book.id) %></td>
     <td><%= @book.body %></td>
+    <% if @book.user == current_user %>
     <td><%= link_to 'Edit', edit_book_path(@book.id) %></td>
+    <% end %>
     <% if @book.user == current_user %>
       <td><%= link_to 'Destroy', book_path(@book), method: :delete %></td>
     <% end %>
   </tr>
 </tabel>
-
-<%= render 'users/user_info', books: @books %>
-
-
