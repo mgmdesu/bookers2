@@ -2,13 +2,16 @@ class UsersController < ApplicationController
   #Usersの一覧ページ
   def index
     @users = User.all
+    @book = Book.new
+    @user = current_user
   end
   
   #Home=Usersのshowページ
   def show
     @user = User.find(params[:id])
-    
     @books = @user.books
+    @book = Book.new
+    @user = current_user
   end
 
   #プロフィール編集ページ

@@ -1,20 +1,8 @@
+<div>
+  <%= flash[:notice] %>
+</div>
 <!--User_infoのページ-->
-
-<table>
-  <tr>
-    <th>name</th>
-  </tr>
-  <tr>
-    <th><%= user.name %></th>
-  </tr>
-  <tr>
-    <th>introduction</th>
-  </tr>
-  <tr>
-    <th><%= user.introduction %></th>
-  </tr>
-</table>
-
+<%= render 'books/user_info', book: @book, user: @user %>
 <!--マイページ(Userページ)-->
 <h2><strong>Books</strong></h2>
 
