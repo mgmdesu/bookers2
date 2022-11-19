@@ -1,4 +1,36 @@
 <!--User_infoのページ-->
+<h2><strong>User info</strong></h2>
+<%= form_with model: @user do |user| %>
+  <% if @book.profile_image. attached? %>
+    <%= image_tag book.profile_image, size: "100×100" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "100×100" %>
+  <% end %>
+<% end %>
+<table>
+  <tr>
+    <th>name</th>
+  </tr>
+  <tr>
+    <th><%= user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+  </tr>
+  <tr>
+    <th><%= user.introduction %></th>
+  </tr>
+</table>
+
+<h2><strong>New book</strong></h2>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %> errors prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <!--User一覧ページ-->
 <h2><strong>Users</strong></h2>
@@ -11,7 +43,10 @@
   
   <% @users.each do |user| %>
   <tr>
-    <td><%= @users.name %></td>
+    <td><%= user.name %></td>
+  </tr>
+  <tr>
+    <td><%= user.introduction %></td>
   </tr>
 </tabel>
 <% end %>
