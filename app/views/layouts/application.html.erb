@@ -6,12 +6,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/c7383565a4.js" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
+      <% flash.each do |message_type: notice| %>
+        <%= content_tag :div, notice, class: message_type %>
+      <% end %>
+      
       <% if user_signed_in? %>
         <li>
           <%= link_to "Home", user_path(current_user.id) %>
