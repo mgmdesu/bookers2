@@ -1,35 +1,51 @@
 <!--User_infoのページ-->
-<h2><strong>User info</strong></h2>
+<h2>User info</h2>
   <%= image_tag user.get_profile_image(100,100) %>
-<table>
-  <tr>
-    <th>name</th>
-    <th><%= user.name %></th>
-  </tr>
-  <tr>
-    <th>introduction</th>
-    <th><%= user.introduction %></th>
-  </tr>
+  
+<table class="table">
+  <div class="row">
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th>
+    </tr>
+  </div>
+  <div class="row">
+    <tr>
+      <th>introduction</th>
+      <th><%= user.introduction %></th>
+    </tr>
+  </div>
+  <div class="row">
+    <tr>
+      <th>
+        <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fas fa-user-cog"></i>
+        <% end %>
+      </th>
+   </tr>
+  </div>
 </table>
 
-<h2><strong>New book</strong></h2>
-<% if book.errors.any? %>
-  <%= book.errors.count %> errors prohibited this obj from being saved:
-  <ul>
-    <% book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<div class="row">
+  <h2>New book</h2>
+    <% if book.errors.any? %>
+    <%= book.errors.count %> errors prohibited this obj from being saved:
+      <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+     </ul>
     <% end %>
-  </ul>
-<% end %>
 
-<%= form_with model: book do |f| %>
-  
-  <div class="book-title">Title</div>
+  <%= form_with model: book do |f| %>
+    <div class="book-title">Title</div>
     <%= f.text_field :title %>
-  
-  <div class="book-body">Opinion</div>
+
+    <div class="book-body">Opinion</div>
     <%= f.text_area :body %>
-      
-  <br><%= f.submit "Create Book" %></br>
     
-<% end %>
+    <div class-"book-botton">
+      <input class="btn btn-success" type="submit" value="Create Book">
+    </div>
+  <% end %>
+</div>

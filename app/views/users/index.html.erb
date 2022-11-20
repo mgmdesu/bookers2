@@ -1,17 +1,32 @@
 <!--User_infoのページ-->
-<%= render 'books/user_info', book: @book, user: @user %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'books/user_info', book: @book, user: @user %>
+    </div>
 <!--User一覧ページ-->
-<h2><strong>Users</strong></h2>
-
-<tabel>
-  <tr>
-    <th>image</th>
-    <th>name</th>
-    <th></th>
-  <% @users.each do |user| %>
-    <td><%= image_tag user.get_profile_image(100,100) %></td>
-    <td><%= user.name %></td>
-    <td><%= link_to 'Show', user_path(user.id) %></td>
-  </tr>
-  <% end %>
-</tabel>
+    <div class="col-md-8 offset-md-1">
+    <h2>Users</h2>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th></th>
+        </tr>
+      </thead>
+      
+      <% @users.each do |user| %>
+      <tbody>
+        <tr>
+          <td><%= image_tag user.get_profile_image(100,100) %></td>
+          <td><%= user.name %></td>
+          <td><%= link_to 'Show', user_path(user.id) %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+    </div>
+  </div>
+</div>
