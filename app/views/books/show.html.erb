@@ -16,15 +16,11 @@
             <%= @user.name %>
             <% end %>
           </th>
-          
           <th><%= link_to @book.title, book_path(@book.id) %></th>
-          
           <td><%= @book.body %></td>
-      
           <% if @book.user == current_user %>
           <td><%= link_to 'Edit', edit_book_path(@book.id), class: "btn btn-success" %></td>
           <% end %>
-          
           <% if @book.user == current_user %>
           <td><%= link_to 'Destroy', book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger" %></td>
           <% end %>
@@ -33,23 +29,3 @@
     </div>
   </div>
 </div>
-
-<table>
-
-  <tr>
-    <th>名前</th> <th>年齢</th> <th>血液型</th>
-  </tr>
-
-  <tr>
-    <td>さとう</td> <td>19</td> <td>A型</td>
-  </tr>
-
-  <tr>
-    <td>のざわ</td> <td>24</td> <td>O型</td>
-  </tr>
-
-  <tr>
-    <td>まなべ</td> <td>20</td> <td>B型</td>
-  </tr>
-
-</table>

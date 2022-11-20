@@ -1,24 +1,30 @@
-<h2>User info</h2>
-
-<%= flash[:notice] %>
-
-<% if @user.errors.any? %>
-  <%= @user.errors.count %> errors prohibited this obj from being saved:
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<%= form_with model: @user do |f| %>
-<table>
-  <label for="inputName">Name</label></br>
-  <%= f.text_field :name, autofocus: true, id:"inputName" %></br>
-  <label for="inputImage">Image</label></br>
-  <%= f.file_field :profile_image,  accept: "image/*" %></br>
-  <label for="inputIntroduction">Introduction</label></br>
-  <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction" %></br>
-  <%= f.submit "Update User" %>
-<% end %>
-</table>
+<div class="container mt-3">
+  <div class="row">
+    <div class="mx-auto">
+      <h2>User info</h2>
+      
+      <% if @user.errors.any? %>
+        <%= @user.errors.count %> errors prohibited this obj from being saved:
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      
+      <%= form_with model: @user do |f| %>
+      <table>
+        <label for="inputName">Name</label></br>
+        <%= f.text_field :name, autofocus: true, id:"inputName" %></br>
+        <label for="inputImage">Image</label></br>
+        <%= f.file_field :profile_image,  accept: "image/*" %></br>
+        <label for="inputIntroduction">Introduction</label></br>
+        <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction" %></br>
+        <div class-"book-botton">
+          <input class="btn btn-secondary" type="submit" value="Update User">
+        </div>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>
