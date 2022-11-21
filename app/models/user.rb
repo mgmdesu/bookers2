@@ -17,6 +17,7 @@ class User < ApplicationRecord
   end
 
   validates :name,
+    uniqueness: { scope: :name },
     length: { minimum: 2, maximum: 20 }
   
   validates :introduction,

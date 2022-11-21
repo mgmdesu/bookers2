@@ -2,19 +2,18 @@
 <h2>User info</h2>
   <%= image_tag user.get_profile_image(100,100) %>
   
-<table class="table">
-  <div class="row">
-    <tr>
-      <th>name</th>
-      <th><%= user.name %></th>
-    </tr>
-  </div>
-  <div class="row">
-    <tr>
-      <th>introduction</th>
-      <th><%= user.introduction %></th>
-    </tr>
-  </div>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>name</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+      </tr>
+    </tbody>
+  </table>
   <div class="row">
     <tr>
       <th>
@@ -24,7 +23,6 @@
       </th>
    </tr>
   </div>
-</table>
 
 <div class="row">
   <h2>New book</h2>
