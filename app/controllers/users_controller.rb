@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_user, only: [:edit,:update]
   
   #Usersの一覧ページ
   def index
@@ -13,7 +14,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
-    @user = current_user
   end
 
   #プロフィール編集ページ
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     if @user == current_user
       render :edit
     else
-      redirect_to user_path
+      redirect_to user_path(current_user.id)
     end
   end
   
@@ -33,6 +33,13 @@ class UsersController < ApplicationController
       redirect_to user_path(@user.id)
     else
       render :edit
+    end
+  end
+  
+  def correct_user
+    @user = User.find(params[:id])
+    unless @user.id == current_user.id
+       redirect_to user_path(current_user.id)
     end
   end
   
